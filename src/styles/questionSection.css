@@ -1,0 +1,49 @@
+.answer-neutral {
+    border: 1px solid black;
+    height: 50px;
+    background-color: azure;
+    text-align: center;
+}
+.answer-chosen {
+    border: 1px solid black;
+    height: 50px;
+    background-color: burlywood;
+    text-align: center;
+}
+.answer-wrong {
+    border: 1px solid black;
+    height: 50px;
+    background-color: red;
+    text-align: center;
+}
+.answer-right {
+    border: 1px solid black;
+    height: 50px;
+    background-color: green;
+    text-align: center;
+}
+.theme {
+    height: 40px;
+    text-align: center;
+}
+.question {
+    border-top: 1px solid black;
+    height: 80px;
+    text-align: center;
+}
+
+.answer-button-block {
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.questionSection {
+    border: 2px solid black;
+    border-radius: 8%;
+    width: 400px;
+    position: absolute;
+    left: 850px;
+    top: 130px;
+}

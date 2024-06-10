@@ -1,0 +1,38 @@
+.cell-neutral {
+    width: 123px;
+    background-color: beige;
+    border: 2px solid black;
+}
+.cell-defender {
+    width: 123px;
+    background-color: blue;
+    border: 2px solid black;
+}
+.cell-bug {
+     width: 123px;
+     background-color: crimson;
+     border: 2px solid black;
+ }
+.neutral-cell-to-attack {
+    width: 123px;
+    background-color: aquamarine;
+    border: 2px solid black;
+}
+.bot-cell-to-attack {
+    width: 123px;
+    background-color: coral;
+    border: 2px solid black;
+}
+.cell-onAttack {
+    width: 123px;
+    background-color: blueviolet;
+    border: 2px solid black;
+}
+.gameBoardRow {
+    height: 123px;
+}
+.gameBoard {
+    margin-left: 150px;
+    margin-top: 130px;
+    margin-right: 10px;
+}
