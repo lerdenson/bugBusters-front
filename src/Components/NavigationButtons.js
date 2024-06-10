@@ -1,21 +1,19 @@
 import React from 'react';
-
-import StartService from "../service/StartService"; // Import your CSS file
-
+import '../styles/navigation.css'
 const NavigationLinks = (props) => {
-    const handleRestart = () => {
-        props.setDefaultField()
-        StartService.startGame()
+    const handleRestart = async (e) => {
+        e.preventDefault()
+        await props.startGame()
     }
 
     const handleToMain = () => {
-        props.setIsGameStarted(props.isGameStarted)
+        props.setIsGameStarted(false)
 
     }
     return (
-        <div>
-            <button id="restart" onClick={handleRestart} className="u-btn u-button-style u-btn-2">Restart</button>
-            <button onClick={handleToMain} className="u-btn u-button-style u-btn-3">To main page</button>
+        <div className="navigationButtons">
+            <button className="button-restart" onClick={(e) => handleRestart(e)} >Restart</button>
+            <button className="button-toMain" onClick={handleToMain}>start page</button>
         </div>
     );
 };

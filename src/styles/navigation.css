@@ -1,0 +1,11 @@
+.navigationButtons {
+    position: absolute;
+    left: 340px;
+    top: 650px;
+}
+.button-restart {
+    margin: 10px;
+}
+.button-toMain {
+    margin: 10px;
+}

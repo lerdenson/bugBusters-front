@@ -24,11 +24,7 @@ const Cell = (props) => {
     })
     useEffect(() => {
         if (props.currentTarget.x !== coordinates.x || props.currentTarget.y !== coordinates.y) {
-            if (
-                props.bugCells.filter(c =>
-                    c.x === coordinates.x && c.y === coordinates.y
-                ).length > 0
-            ) {
+            if (isCellUnderBugControl()) {
                 setStyle("cell-bug")
             } else setStyle("cell-neutral")
 
@@ -41,24 +37,14 @@ const Cell = (props) => {
             props.onAttack &&
             isCellCanBeUnderAttack()
         ) {
-            setStyle("neutral-cell-to-attack")
-        }
-    })
-
-    useEffect(() => {
-        if (
-            props.bugCells.filter(c =>
-                c.x === coordinates.x && c.y === coordinates.y
-            ).length > 0 &&
-            // props.onAttack &&
-            isCellCanBeUnderAttack()
-        ) {
-            setStyle("bug-cell-to-attack")
+            if (isCellUnderBugControl()) {
+                setStyle("bug-cell-to-attack")
+            } else setStyle("neutral-cell-to-attack")
         }
     })
 
     const isCellCanBeUnderAttack = () => {
-        let x= false
+        let x = false
         getCellsPlayerCanAttack().forEach(c => {
                 if (coordinates.x === c.x && coordinates.y === c.y) {
                     x = true
@@ -66,6 +52,12 @@ const Cell = (props) => {
             }
         )
         return x
+    }
+
+    const isCellUnderBugControl = () => {
+        return props.bugCells.filter(c =>
+            c.x === coordinates.x && c.y === coordinates.y
+        ).length > 0
     }
 
 
@@ -108,16 +100,15 @@ const Cell = (props) => {
         return moves
     }
 
-    const handleClick = (e) => {
+    const handleClick = async (e) => {
         e.preventDefault()
-        if (isCellCanBeUnderAttack()) {
+        if (props.onAttack && isCellCanBeUnderAttack()) {
             props.setCurrentTarget(coordinates)
+            const guest = await QuestionService.getQuestion()
+            console.log(guest)
+            props.setQuestion(guest)
+            props.setOnAttack(!props.onAttack)
         }
-        // if (props.onAttack && isCellCanBeUnderAttack()) {
-        //     props.setCurrentTarget(coordinates)
-        //     props.setOnAttack(!props.onAttack)
-        //     props.setQuestion(QuestionService.getQuestion())
-        // }
     }
 
     return (

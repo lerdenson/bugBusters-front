@@ -1,0 +1,24 @@
+.container-notify {
+    width: 500px;
+    background-color: #f0f0f0;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    position: absolute;
+    left: 1100px;
+    top: 300px;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+.win-notification {
+    background-color: #398b3d;
+    color: white;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.lose-notification {
+    background-color: #c12727;
+    color: white;
+    padding: 15px;
+    border-radius: 5px;
+}
