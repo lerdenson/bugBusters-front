@@ -1,5 +1,6 @@
 .answer-neutral {
     height: 50px;
+    padding: 5px;
     background-color: azure;
 }
 .answer-neutral:hover{

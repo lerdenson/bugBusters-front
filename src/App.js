@@ -46,27 +46,15 @@ function App() {
 
     const startGame = async () => {
         await StartService.startGame()
-
-        const buC = await CellsService.getBugCells()
-        const playerC = await CellsService.getPlayersCells()
-        setPlayerCells(playerC)
-        setBugCells(buC)
+        const playerData = await CellsService.getPlayersCells()
+        const bugData = await CellsService.getBugCells()
+        setPlayerCells(playerData)
+        setBugCells(bugData)
 
         setIsGameStarted(true)
         setOnAttack(true)
         setWinner(0)
     }
-
-    const addCellToPlayerCells = (cell) => {
-        setPlayerCells([...playerCells, {x: cell.x, y: cell.y}])
-        setBugCells(bugCells.filter(c => c.x !== cell.x || c.y !== cell.y))
-    }
-
-    const addCellToBugCells = (cell) => {
-        setBugCells([...bugCells, {x: cell.x, y: cell.y}])
-        setPlayerCells(playerCells.filter(c => c.x !== cell.x || c.y !== cell.y))
-    }
-
 
     const questionAndRulesVisibility = {display: winner === 0 ? "" : "none"}
 
@@ -94,8 +82,8 @@ function App() {
                         coordinates={currentTarget}
                         onAttack={onAttack}
                         setOnAttack={setOnAttack}
-                        addCellToPlayerCells={addCellToPlayerCells}
-                        addCellToBugCells={addCellToBugCells}
+                        setPlayerCells={setPlayerCells}
+                        setBugCells={setBugCells}
                         setWinner={setWinner}
                     />
                     <MakeAttackMessage onAttack={onAttack}/>

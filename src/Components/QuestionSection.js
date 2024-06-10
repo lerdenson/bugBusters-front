@@ -29,26 +29,29 @@ const QuestionSection = (props) => {
         }
         const request = {
             questionId: props.question.id,
-            answer: answer,
+            answer: answer.trim(),
             x: props.coordinates.x,
             y: props.coordinates.y
         }
         const responseBody = await QuestionService.sendAnswer(request)
         setCorrectAnswer(responseBody.answer)
-
-        setTimeout(() => {
+        if (answer === responseBody.answer) {
+            props.setPlayerCells(oldArray => [...oldArray, props.coordinates])
+            props.setBugCells(oldArray => oldArray.filter(c => c.x !== props.coordinates.x || c.y !== props.coordinates.y))
+        }
+        setTimeout(async () => {
             props.setWinner(responseBody.winnerId)
 
-            if (answer === responseBody.answer) {
-                props.addCellToPlayerCells(props.coordinates)
-            }
             if (responseBody.coordinates.x >= 0 && responseBody.coordinates.y >= 0) {
-                props.addCellToBugCells(responseBody.coordinates)
+                props.setBugCells(oldArray => [...oldArray, responseBody.coordinates])
+                props.setPlayerCells(oldArray => oldArray.filter(c => c.x !== responseBody.coordinates.x || c.y !== responseBody.coordinates.y))
+
             }
 
             props.setOnAttack(!props.onAttack)
             setCorrectAnswer("")
             setAnswer("")
+
         }, 3000)
 
     }
