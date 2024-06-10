@@ -12,8 +12,8 @@ const NavigationLinks = (props) => {
     }
     return (
         <div className="navigationButtons">
-            <button className="button-restart" onClick={(e) => handleRestart(e)} >Restart</button>
-            <button className="button-toMain" onClick={handleToMain}>start page</button>
+            <button className="common-button" onClick={(e) => handleRestart(e)} >Restart</button>
+            <button className="common-button" onClick={handleToMain}>start page</button>
         </div>
     );
 };

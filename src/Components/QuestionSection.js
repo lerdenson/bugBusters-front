@@ -84,7 +84,7 @@ const QuestionSection = (props) => {
 
 
             <div className="answer-button-block">
-                <button onClick={handleClick}  >Answer</button>
+                <button onClick={handleClick} className="common-button" >Answer</button>
             </div>
         </div>
     );

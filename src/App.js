@@ -8,6 +8,9 @@ import MakeAttackMessage from "./Components/MakeAttackMessage";
 import StartService from "./service/StartService";
 import EndgameMessage from "./Components/EndgameMessage";
 
+import './styles/commonStyles.css'
+import Header from "./Components/Header";
+
 function App() {
     const playerCellsInitialState = [{x: 0, y: 3}]
     const bugCellsInitialState = [{x: 3, y: 0}]
@@ -73,6 +76,7 @@ function App() {
 
     return (
         <div>
+            <Header/>
             <StartSection style={startPageVisibility} startGame={startGame}/>
             <div style={gameVisibility}>
                 <GameTable

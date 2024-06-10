@@ -32,7 +32,8 @@
     height: 123px;
 }
 .gameBoard {
-    margin-left: 150px;
-    margin-top: 130px;
+    position: absolute;
+    left: 150px;
+    top: 130px;
     margin-right: 10px;
 }

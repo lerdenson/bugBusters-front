@@ -1,0 +1,12 @@
+.customHeader {
+    width: 100%;
+    height: 100px;
+    position: absolute;
+    left: 600px;
+}
+
+/* Стили для логотипа */
+.customHeader img {
+    height: 100px;
+    width: auto;
+}

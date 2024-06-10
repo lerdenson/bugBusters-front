@@ -1,25 +1,27 @@
 .answer-neutral {
-    border: 1px solid black;
     height: 50px;
     background-color: azure;
-    text-align: center;
+}
+.answer-neutral:hover{
+    background-color: #b7dbff;
 }
 .answer-chosen {
     border: 1px solid black;
     height: 50px;
-    background-color: burlywood;
+    background-color: lemonchiffon;
     text-align: center;
+
 }
 .answer-wrong {
     border: 1px solid black;
     height: 50px;
-    background-color: red;
+    background-color: indianred;
     text-align: center;
 }
 .answer-right {
     border: 1px solid black;
     height: 50px;
-    background-color: green;
+    background-color: darkseagreen;
     text-align: center;
 }
 .theme {
@@ -29,7 +31,8 @@
 .question {
     border-top: 1px solid black;
     height: 80px;
-    text-align: center;
+    padding: 5px;
+    padding-left: 10px;
 }
 
 .answer-button-block {
@@ -46,4 +49,29 @@
     position: absolute;
     left: 850px;
     top: 130px;
+    vertical-align: center;
+}
+.answer-button {
+    background-color: #008CBA;
+    border: none;
+    color: white;
+    padding: 10px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 12px;
+    transition: background-color 0.3s ease;
+}
+
+.answer-button:hover {
+    background-color: #005f73;
+}
+.top-answer {
+    border-top: 1px solid black;
+}
+.bottom-answer {
+    border-bottom: 1px solid black;
 }
