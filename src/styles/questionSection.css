@@ -1,11 +1,14 @@
 .answer-neutral {
+    cursor: pointer;
     height: 50px;
     padding: 5px;
     background-color: azure;
 }
-.answer-neutral:hover{
+
+.answer-neutral:hover {
     background-color: #b7dbff;
 }
+
 .answer-chosen {
     border: 1px solid black;
     height: 50px;
@@ -13,22 +16,28 @@
     text-align: center;
 
 }
+
 .answer-wrong {
+    cursor: pointer;
     border: 1px solid black;
     height: 50px;
     background-color: indianred;
     text-align: center;
 }
+
 .answer-right {
+    cursor: pointer;
     border: 1px solid black;
     height: 50px;
     background-color: darkseagreen;
     text-align: center;
 }
+
 .theme {
     height: 40px;
     text-align: center;
 }
+
 .question {
     border-top: 1px solid black;
     height: 80px;
@@ -52,6 +61,7 @@
     top: 130px;
     vertical-align: center;
 }
+
 .answer-button {
     background-color: #008CBA;
     border: none;
@@ -70,9 +80,11 @@
 .answer-button:hover {
     background-color: #005f73;
 }
+
 .top-answer {
     border-top: 1px solid black;
 }
+
 .bottom-answer {
     border-bottom: 1px solid black;
 }

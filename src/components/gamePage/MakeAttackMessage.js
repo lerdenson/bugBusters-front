@@ -1,5 +1,5 @@
 import React from "react";
-import '../styles/makeAttackMessage.css'
+import '../../styles/makeAttackMessage.css'
 
 const MakeAttackMessage = (props) => {
     const visibility = {display: props.onAttack ? "" : "none"}

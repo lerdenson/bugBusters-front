@@ -1,0 +1,76 @@
+.settings-section {
+    position: absolute;
+    top: 180px;
+    left: 770px;
+    font-family: Arial, sans-serif;
+    background-color: #fff;
+    border: 2px solid #e53935;
+    border-radius: 50px;
+    padding: 10px;
+    width: 500px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.settings-header {
+    margin-top: 10px;
+    color: #333;
+    font-size: 24px;
+}
+
+.settings-blockName {
+    color: #333;
+    font-size: 17px;
+}
+
+.settings-radioButton-neutral {
+    cursor: pointer;
+    display: inline-block;
+    border: 1px solid red;
+    background-color: beige;
+    margin: 5px;
+    border-radius: 10px;
+    width: 130px;
+    height: 40px;
+
+}
+
+.settings-radioButton-neutral:hover {
+    background-color: blanchedalmond;
+}
+
+.settings-radioButton-chosen {
+    cursor: pointer;
+    display: inline-block;
+    border: 1px solid red;
+    margin: 5px;
+    border-radius: 10px;
+    background-color: khaki;
+    width: 130px;
+    height: 40px;
+}
+
+
+.button-start {
+    /*position: absolute;*/
+    /*bottom: 30px;*/
+    /*left: 220px;*/
+    margin-top: 30px;
+    padding: 10px 20px;
+    background-color: #fff;
+    color: #000;
+    border: 2px solid #e53935;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.button-start:hover {
+    background-color: #e53935;
+    color: #fff;
+}
+
+.settings-warning {
+    color: #e53935;
+}

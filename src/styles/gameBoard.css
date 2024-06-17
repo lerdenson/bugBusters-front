@@ -1,36 +1,57 @@
 .cell-neutral {
+    cursor: pointer;
     width: 123px;
     background-color: beige;
     border: 2px solid black;
 }
+
 .cell-defender {
+    cursor: pointer;
     width: 123px;
     background-color: blue;
     border: 2px solid black;
 }
+
 .cell-bug {
-     width: 123px;
-     background-color: crimson;
-     border: 2px solid black;
- }
+    cursor: pointer;
+    width: 123px;
+    background-color: crimson;
+    border: 2px solid black;
+}
+
 .neutral-cell-to-attack {
+    cursor: pointer;
     width: 123px;
     background-color: aquamarine;
     border: 2px solid black;
 }
+
+.neutral-cell-to-attack :hover {
+    border-width: 4px;
+}
+
 .bug-cell-to-attack {
+    cursor: pointer;
     width: 123px;
     background-color: coral;
     border: 2px solid black;
 }
+
+.bug-cell-to-attack :hover {
+    border-width: 4px;
+}
+
 .cell-onAttack {
+    cursor: pointer;
     width: 123px;
     background-color: blueviolet;
     border: 2px solid black;
 }
+
 .gameBoardRow {
     height: 123px;
 }
+
 .gameBoard {
     position: absolute;
     left: 150px;

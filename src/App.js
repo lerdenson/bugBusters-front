@@ -1,15 +1,18 @@
-import QuestionSection from "./Components/QuestionSection";
 import {useEffect, useState} from "react";
-import StartSection from "./Components/StartSection";
-import GameTable from "./Components/GameTable";
-import NavigationButtons from "./Components/NavigationButtons";
+
+import QuestionSection from "./components/gamePage/QuestionSection";
+import StartSection from "./components/startPage/StartSection";
+import GameTable from "./components/gamePage/GameTable";
+import NavigationButtons from "./components/gamePage/NavigationButtons";
 import CellsService from "./service/CellsService";
-import MakeAttackMessage from "./Components/MakeAttackMessage";
+import MakeAttackMessage from "./components/gamePage/MakeAttackMessage";
 import StartService from "./service/StartService";
-import EndgameMessage from "./Components/EndgameMessage";
+import EndgameMessage from "./components/gamePage/EndgameMessage";
+import Header from "./components/Header";
+
 
 import './styles/commonStyles.css'
-import Header from "./Components/Header";
+import Statistic from "./components/gamePage/Statistic";
 
 function App() {
     const playerCellsInitialState = [{x: 0, y: 3}]
@@ -31,6 +34,9 @@ function App() {
         answer3: "answer3",
         answer4: "answer4",
     })
+    const [questionNumber, setQuestionNumber] = useState(0)
+    const [rightQuestionNumber, setRightQuestionNumber] = useState(0)
+
     useEffect(() => {
         (async () => {
             const data = await CellsService.getBugCells()
@@ -44,16 +50,19 @@ function App() {
         })()
     }, [])
 
-    const startGame = async () => {
-        await StartService.startGame()
+    const startGame = async (request) => {
+        await StartService.startGame(request)
         const playerData = await CellsService.getPlayersCells()
         const bugData = await CellsService.getBugCells()
         setPlayerCells(playerData)
         setBugCells(bugData)
 
         setIsGameStarted(true)
+        setCurrentTarget({x: -1, y: -1})
         setOnAttack(true)
         setWinner(0)
+        setRightQuestionNumber(0)
+        setQuestionNumber(0)
     }
 
     const questionAndRulesVisibility = {display: winner === 0 ? "" : "none"}
@@ -65,7 +74,10 @@ function App() {
     return (
         <div>
             <Header/>
-            <StartSection style={startPageVisibility} startGame={startGame}/>
+            <StartSection
+                style={startPageVisibility}
+                startGame={startGame}
+            />
             <div style={gameVisibility}>
                 <GameTable
                     onAttack={onAttack}
@@ -75,6 +87,7 @@ function App() {
                     setCurrentTarget={setCurrentTarget}
                     setOnAttack={setOnAttack}
                     setQuestion={setQuestion}
+                    setQuestionNumber={setQuestionNumber}
                 />
                 <div style={questionAndRulesVisibility}>
                     <QuestionSection
@@ -85,12 +98,20 @@ function App() {
                         setPlayerCells={setPlayerCells}
                         setBugCells={setBugCells}
                         setWinner={setWinner}
+                        setRightQuestionNumber={setRightQuestionNumber}
+                    />
+                    <Statistic
+                        questionNumber={questionNumber}
+                        rightQuestionNumber={rightQuestionNumber}
                     />
                     <MakeAttackMessage onAttack={onAttack}/>
                 </div>
 
 
-                <NavigationButtons startGame={startGame} setIsGameStarted={setIsGameStarted}/>
+                <NavigationButtons
+                    startGame={startGame}
+                    setIsGameStarted={setIsGameStarted}
+                />
                 <EndgameMessage winner={winner}/>
             </div>
 

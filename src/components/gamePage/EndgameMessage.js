@@ -1,5 +1,5 @@
 import React from "react";
-import '../styles/endgameMessage.css'
+import '../../styles/endgameMessage.css'
 
 const EndgameMessage = (props) => {
     const winVisibility = {display: props.winner > 0 ? "" : "none"}

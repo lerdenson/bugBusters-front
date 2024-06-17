@@ -1,9 +1,10 @@
 import React from 'react';
-import '../styles/navigation.css'
+import '../../styles/navigation.css'
 const NavigationLinks = (props) => {
     const handleRestart = async (e) => {
         e.preventDefault()
-        await props.startGame()
+        const request = {themes: [], difficulty: ""}
+        await props.startGame(request)
     }
 
     const handleToMain = () => {

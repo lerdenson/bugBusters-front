@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import Cell from "./Cell";
 
 const GameTable = (props) => {
@@ -18,6 +18,7 @@ const GameTable = (props) => {
                     currentTarget={props.currentTarget}
                     setOnAttack={props.setOnAttack}
                     setQuestion={props.setQuestion}
+                    setQuestionNumber={props.setQuestionNumber}
                     key={rowIndex}
                 />
             )}
@@ -42,6 +43,7 @@ const TableRow = (props) => {
                     currentTarget={props.currentTarget}
                     setOnAttack={props.setOnAttack}
                     setQuestion={props.setQuestion}
+                    setQuestionNumber={props.setQuestionNumber}
                     key={index}
                 />
             )}

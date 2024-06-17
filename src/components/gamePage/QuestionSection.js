@@ -1,12 +1,12 @@
 import React, {useEffect, useState} from 'react';
-import QuestionService from "../service/QuestionService";
-import '../styles/questionSection.css'
+import QuestionService from "../../service/QuestionService";
+import '../../styles/questionSection.css'
 
 const QuestionSection = (props) => {
     const [answer, setAnswer] = useState("")
     const [correctAnswer, setCorrectAnswer] = useState("")
 
-    const isVisible = { display: props.onAttack ? 'none' : '' }
+    const isVisible = {display: props.onAttack ? 'none' : ''}
 
     const getRadioStyle = answerI => {
         if (answerI === correctAnswer) return "answer-right"
@@ -38,6 +38,7 @@ const QuestionSection = (props) => {
         if (answer === responseBody.answer) {
             props.setPlayerCells(oldArray => [...oldArray, props.coordinates])
             props.setBugCells(oldArray => oldArray.filter(c => c.x !== props.coordinates.x || c.y !== props.coordinates.y))
+            props.setRightQuestionNumber(val => val + 1)
         }
         setTimeout(async () => {
             props.setWinner(responseBody.winnerId)
@@ -59,7 +60,7 @@ const QuestionSection = (props) => {
     return (
         <div className="questionSection" style={isVisible}>
             <h3 className="theme">{props.question.theme}</h3>
-            <p className="question">{props.question.question}<br /></p>
+            <p className="question">{props.question.question}<br/></p>
             <Answer
                 answer={props.question.answer1}
                 value={props.question.answer1}
@@ -87,7 +88,7 @@ const QuestionSection = (props) => {
 
 
             <div className="answer-button-block">
-                <button onClick={handleClick} className="common-button" >Answer</button>
+                <button onClick={handleClick} className="common-button">Answer</button>
             </div>
         </div>
     );

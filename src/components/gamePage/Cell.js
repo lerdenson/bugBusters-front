@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
-import QuestionService from "../service/QuestionService";
-import '../styles/gameBoard.css'
+import QuestionService from "../../service/QuestionService";
+import '../../styles/gameBoard.css'
 
 const Cell = (props) => {
     const [style, setStyle] = useState("cell-neutral")
@@ -108,6 +108,7 @@ const Cell = (props) => {
             console.log(guest)
             props.setQuestion(guest)
             props.setOnAttack(!props.onAttack)
+            props.setQuestionNumber(val => val+1)
         }
     }
 
